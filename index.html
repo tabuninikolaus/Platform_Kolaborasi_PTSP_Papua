@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Platform Kolaborasi - Landing Page</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="firebase-config.js"></script>
+    <!-- Menggunakan Firebase config -->
+  </head>
+  <body>
+    <div class="container">
+      <h1>Selamat Datang di Platform Kolaborasi PTSP Papua!</h1>
+      <p>Ayo mulai proyek kolaborasi Anda.</p>
+      <button id="mulaiBtn">Mulai</button>
+    </div>
+    <script type="module">
+      document
+        .getElementById("mulaiBtn")
+        .addEventListener("click", function () {
+          window.location.href = "login.html"; // Arahkan ke halaman login
+        });
+    </script>
+  </body>
+</html>

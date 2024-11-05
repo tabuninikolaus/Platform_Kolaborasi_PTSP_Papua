@@ -1,0 +1,661 @@
+/* Styling Umum */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+/* Container utama, terdiri dari sidebar dan area chat */
+.main-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 300px;
+  background: linear-gradient(to right, #522157, #8b4c70);
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: auto;
+}
+
+.user-profile {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.user-profile img {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 5px solid #fff;
+}
+
+#userName {
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+#logoutBtn {
+  background-color: #efecec;
+  color: rgb(71, 62, 62);
+  border: none;
+  padding: 10px;
+  width: 50%;
+  cursor: pointer;
+  border-radius: 20px;
+  margin-top: -6px;
+}
+
+.channels h3 {
+  margin-bottom: 10px;
+}
+
+#channelList {
+  list-style: none;
+  padding: 0;
+}
+
+#createChannelBtn {
+  background-color: #0dcdba;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  width: 50%;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#channelList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  color: #413d3d;
+  font-family: lato;
+}
+
+/* Styling Tombol Join, Joined, dan Delete */
+#channelList .join-btn {
+  background-color: #0dcdba; /* Biru untuk tombol Join */
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#channelList .joined-btn {
+  background-color: #00c8ff; /* Hijau untuk tombol Joined */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: not-allowed;
+  border-radius: 5px;
+}
+
+#channelList .delete-btn {
+  background-color: salmon; /* Merah untuk tombol Delete */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#leaveChannelBtn {
+  background-color: #0dcdba;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  width: 15%;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Chat Container */
+.chat-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f4f4;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background: linear-gradient(to bottom, #522157, #8b4c70);
+  color: white;
+}
+
+.chat-box {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: scroll;
+  background-color: #fffae6;
+  border: 1px solid #ddd;
+}
+
+.message-input {
+  display: flex;
+  padding: 20px;
+  background-color: white;
+}
+
+.message-input input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+#sendBtn {
+  margin-right: 4px;
+}
+
+.message-input button {
+  background-color: #0dcdba;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Pesan Umum */
+.message {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.message img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* Gelembung pesan dari pengirim (di sebelah kanan) */
+.message.self {
+  justify-content: flex-end;
+}
+
+.message.self .message-content {
+  background-color: #ccefdb; /* Hijau muda untuk pesan pengirim */
+  text-align: left;
+  border-radius: 10px 10px 0 10px; /* Menghadap ke kiri */
+  max-width: 60%;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.message.self img {
+  order: 2; /* Pindahkan gambar ke kanan */
+  margin-left: 10px; /* Tambahkan margin kiri untuk jarak */
+}
+
+/* Gelembung pesan dari pengguna lain (di sebelah kiri) */
+.message-left {
+  justify-content: flex-start;
+}
+
+.message-left .message-content {
+  background-color: white;
+  text-align: left;
+  border-radius: 10px 10px 10px 0; /* Menghadap ke kanan */
+  max-width: 60%;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.message-left img {
+  margin-right: 10px;
+}
+
+/* File Link Styling */
+a {
+  color: #0dcdba;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.message-content a:hover {
+  text-decoration: underline;
+}
+
+/* Welcome Message */
+.welcome-message {
+  text-align: center;
+  margin-top: 50px;
+  color: #333;
+}
+
+.welcome-message h3 {
+  font-size: 24px;
+}
+
+.welcome-message p {
+  font-size: 18px;
+  color: #666;
+}
+
+/* Styling umum untuk pesan */
+.message {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Avatar di pesan */
+.message img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* Konten pesan (untuk penerima) */
+.message-content {
+  background-color: white; /* Warna latar belakang untuk penerima */
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 60%;
+  word-wrap: break-word;
+}
+
+/* Konten pesan (untuk penerima) */
+.message:not(.self) .message-content {
+  background-color: white; /* Warna latar belakang tetap putih */
+  text-align: left;
+}
+
+/* Tambahkan di bagian CSS */
+.joined-btn {
+  background-color: #0dcdba; /* Hijau */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: not-allowed;
+  border-radius: 5px;
+}
+a {
+  text-decoration: none;
+  color: #1484b1;
+}
+
+/* STYLE BUAT SCROLL BAR */
+/* Custom Scrollbar untuk Chrome, Safari, Edge */
+::-webkit-scrollbar {
+  width: 5px; /* Lebar scrollbar */
+  height: 5px; /* Tinggi scrollbar untuk elemen horizontal */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Warna track (bagian di belakang scrollbar) */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Warna thumb (bagian yang bisa di-scroll) */
+  border-radius: 10px; /* Membuat sudut rounded pada thumb */
+  border: 2px solid #fff; /* Memberikan ruang di sekeliling thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Warna thumb saat di-hover */
+}
+
+/* Custom Scrollbar untuk Firefox */
+* {
+  scrollbar-width: thin; /* Lebar scrollbar lebih tipis */
+  scrollbar-color: #888 #f1f1f1; /* Warna thumb dan track (thumb #888, track #f1f1f1) */
+}
+
+.chat-box-default {
+  background-image: url(ptsp.jpeg);
+  background-color: #0dcdba;
+  background-repeat: no-repeat;
+  position: center;
+  background-size: cover;
+}
+.welcome-message {
+  font-weight: bold;
+  color: #034130;
+}
+.welcome-message P {
+  color: #000;
+}
+
+/* MODAL */
+/* Modal styling */
+/* Modal styling */
+.modal {
+  display: none; /* Hidden secara default */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Background hitam transparan */
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 400px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/* CSS untuk elemen channel list */
+.channel-link {
+  word-break: break-word; /* Memotong kata jika terlalu panjang */
+  white-space: normal; /* Membuat teks bisa memanjang ke baris berikutnya */
+  display: block; /* Mengambil seluruh lebar kontainer */
+}
+.close-button {
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+
+/* File Upload Look */
+.file-upload-container {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.file-upload-item {
+  display: flex;
+  align-items: center;
+  background-color: #e1f5fe;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.file-info {
+  flex-grow: 1;
+}
+
+.file-name {
+  font-weight: bold;
+  color: #2e7d32;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+.file-type-size {
+  font-size: 12px;
+  color: #555;
+}
+
+.upload-status {
+  margin-right: 10px;
+  text-align: right;
+}
+
+.progress-percentage {
+  font-size: 12px;
+  color: #0288d1;
+}
+
+.time-remaining {
+  font-size: 12px;
+  color: #666;
+}
+
+.upload-progress {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background-color: #cfd8dc;
+}
+
+.upload-actions {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.cancel-upload {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  color: #d32f2f;
+  cursor: pointer;
+}
+
+/* EYE */
+.chat-message {
+  background-color: #e1f5fe;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 5px 0;
+  max-width: 80%;
+  position: relative;
+}
+
+.file-upload-message {
+  display: flex;
+  flex-direction: column;
+}
+
+.file-info {
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+.file-type-size {
+  font-size: 12px;
+  color: #555;
+}
+
+.upload-status {
+  font-size: 12px;
+  color: #0288d1;
+  margin-top: 5px;
+}
+
+.upload-progress {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background-color: #cfd8dc;
+  margin-top: 5px;
+}
+
+.upload-actions {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+.cancel-upload {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  color: #d32f2f;
+  cursor: pointer;
+}
+
+/* Delete massage btn */
+.delete-btn {
+  background-color: transparent;
+  border: none;
+  color: red;
+  cursor: pointer;
+  font-size: 12px;
+  margin-left: 10px;
+}
+.delete-btn:hover {
+  color: darkred;
+}
+.modal {
+  display: none; /* Tersembunyi secara default */
+  position: fixed; /* Tetap di posisi yang sama */
+  z-index: 1000; /* Di atas konten lainnya */
+  left: 0;
+  top: 0;
+  width: 100%; /* Lebar penuh */
+  height: 100%; /* Tinggi penuh */
+  overflow: auto; /* Aktifkan scroll jika diperlukan */
+  background-color: rgb(0, 0, 0); /* Warna latar belakang */
+  background-color: rgba(0, 0, 0, 0.4); /* Warna latar belakang transparan */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* Margin di atas dan di bawah */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Lebar modal */
+}
+
+.close {
+  color: #aaa;
+  float: right; /* Jarak dari kanan */
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* MODAL HAPUS PESAN */
+/* Styling untuk modal */
+/* Styling untuk titik hapus */
+.message {
+  position: relative;
+  padding: 10px;
+  margin-bottom: 10px;
+
+  border-radius: 8px;
+}
+
+.delete-dot {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Styling untuk modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fff; /* White background */
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  max-width: 90%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Close Button (X) */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+}
+
+.close:hover {
+  color: #ff0000; /* Red color on hover */
+}
+
+/* Input Field */
+#channelNameInput {
+  width: 100%;
+  padding: 10px;
+  margin: 20px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* Button */
+#createChannelConfirmBtn {
+  background-color: #0dcdba;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+}
+
+#createChannelConfirmBtn:hover {
+  background-color: #0c9284; /* Darker blue on hover */
+}
