@@ -4,16 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Platform Kolaborasi - Main Content</title>
-    <!-- External CSS -->
     <link rel="stylesheet" href="main-content.css" />
   </head>
   <body>
     <!-- Container Utama -->
     <div class="main-container">
       <!-- Sidebar untuk profil pengguna dan channel -->
-      <div class="sidebar">
+      <div id="sidebar" class="sidebar">
         <div class="user-profile">
-          <img src="default-profile.png" alt="User Image" id="userImage" />
+          <img src="#" alt="User Image" id="userImage" />
           <p id="userName">Nama Pengguna</p>
           <button id="logoutBtn">Log out</button>
         </div>
@@ -29,8 +28,13 @@
       <!-- Area Chat -->
       <div class="chat-container">
         <div class="chat-header">
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
           <h3 id="channelName">Nama Channel</h3>
-          <button id="leaveChannelBtn">Leave Channel</button>
+          <button id="leaveChannelBtn"><p>Leave</p></button>
         </div>
         <div class="chat-box" id="chatBox">
           <!-- Pesan Chat akan dimuat di sini -->
@@ -174,5 +178,11 @@
 
     <!-- Import external JavaScript -->
     <script type="module" src="main-content.js"></script>
+    <script type="module">
+      function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        sidebar.classList.toggle("active");
+      }
+    </script>
   </body>
 </html>

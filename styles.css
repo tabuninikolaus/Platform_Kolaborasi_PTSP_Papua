@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Arial", sans-serif;
-  background-image: url(ptsp.jpeg);
+  background-image: url(ptsp1.JPG);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -224,4 +224,83 @@ button[type="submit"]:hover {
   margin-top: 10px;
   cursor: pointer;
   border-radius: 4px;
+}
+/* RESPOSIF DESIGN */
+/* Responsif untuk iPad (min-width: 768px dan max-width: 1024px) */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .container,
+  .login-container,
+  .register-container,
+  .profile-container {
+    width: 80%; /* Lebar lebih fleksibel */
+    margin-top: 50px; /* Sedikit kurangi margin */
+    padding: 30px; /* Kurangi padding untuk lebih ringkas */
+  }
+
+  h1,
+  h2 {
+    font-size: 2rem; /* Sesuaikan ukuran font */
+  }
+
+  button,
+  input {
+    font-size: 0.9rem; /* Ukuran elemen lebih kecil */
+  }
+}
+
+/* Responsif untuk perangkat mobile (max-width: 767px) */
+@media only screen and (max-width: 767px) {
+  body {
+    padding: 10px; /* Tambahkan padding agar tidak terlalu rapat */
+    justify-content: flex-start; /* Atur posisi */
+    align-items: flex-start;
+    margin-top: 200px;
+  }
+
+  .container,
+  .login-container,
+  .register-container,
+  .profile-container {
+    width: 90%; /* Lebar hampir penuh layar */
+    margin-top: 20px; /* Kurangi margin */
+    padding: 20px; /* Kurangi padding */
+  }
+
+  h1,
+  h2 {
+    font-size: 1.8rem; /* Ukuran font lebih kecil */
+  }
+
+  button,
+  input {
+    font-size: 0.85rem; /* Elemen lebih kecil */
+    padding: 8px; /* Kurangi padding */
+  }
+
+  .modal-content {
+    width: 90%; /* Modal lebih kecil */
+    padding: 15px;
+  }
+
+  .close {
+    font-size: 18px; /* Tombol close lebih kecil */
+  }
+}
+
+/* Tambahkan gaya untuk layar sangat kecil (max-width: 480px) */
+@media only screen and (max-width: 480px) {
+  h1,
+  h2 {
+    font-size: 1.5rem; /* Ukuran font lebih kecil untuk layar kecil */
+  }
+
+  input,
+  button {
+    font-size: 0.8rem; /* Elemen lebih kecil */
+    padding: 6px; /* Padding lebih kecil */
+  }
+}
+.profile-container span {
+  margin-left: -163px;
+  color: #5e5252;
 }

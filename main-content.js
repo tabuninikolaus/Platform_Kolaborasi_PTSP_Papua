@@ -45,7 +45,7 @@ const db = getFirestore();
 const storage = getStorage();
 
 // Periksa apakah Firebase berhasil diinisialisasi
-console.log("Firebase has been initialized eyee:", app);
+console.log("Firebase has been initialized:", app);
 
 // 2. MENANGANI AUTENTIKASI & PENGGUNAAN CHANNEL
 // ELEMEN HTML START
@@ -93,6 +93,8 @@ const successOkBtn = document.getElementById("successOkBtn");
 
 const closeCreatorModal = document.getElementById("closeCreatorModal");
 const creatorOkBtn = document.getElementById("creatorOkBtn");
+const hamburger = document.querySelector(".hamburger");
+const sidebar = document.querySelector(".sidebar");
 
 // Fungsi checkAuth untuk otentikasi pengguna
 function checkAuth() {
@@ -126,6 +128,18 @@ function checkAuth() {
 }
 
 checkAuth();
+
+// Tambahkan event listener untuk klik hamburger menu
+hamburger.addEventListener("click", () => {
+  sidebar.classList.toggle("hidden"); // Tampilkan/sembunyikan sidebar
+});
+
+// Pastikan sidebar disembunyikan saat mengklik di luar sidebar
+document.addEventListener("click", (event) => {
+  if (!sidebar.contains(event.target) && !hamburger.contains(event.target)) {
+    sidebar.classList.add("hidden");
+  }
+});
 
 // Fungsi logout
 logoutBtn?.addEventListener("click", () => {
@@ -793,7 +807,7 @@ function showWelcomeMessage() {
   chatBox.innerHTML = `
     <div class="welcome-message">
       <h3>SELAMAT DATANG DI CHATTBOX KOLABORASI PTSP PAPUA</h3>
-      <p>Silahkan akses sidebar untuk create atau join channel</p>
+      <p>Silahkan akses sidebar untuk <a href="#"> create</a> atau <a href="#"> join</a> channel</p>
     </div>
   `;
 }

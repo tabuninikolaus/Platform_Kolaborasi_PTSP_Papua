@@ -10,6 +10,7 @@ body {
 .main-container {
   display: flex;
   height: 100vh;
+  transition: margin-left 0.3s ease;
 }
 
 /* Sidebar */
@@ -22,6 +23,29 @@ body {
   flex-direction: column;
   justify-content: space-between;
   overflow: auto;
+  transition: transform 0.3s ease-in-out; /* Animasi untuk keluar masuk */
+}
+
+.sidebar.active {
+  transform: translateX(0); /* Sidebar muncul */
+}
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  position: absolute;
+  top: 37px;
+  left: 3px;
+  z-index: 1000;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: white;
+  margin-bottom: 4px;
+  border-radius: 5px;
 }
 
 .user-profile {
@@ -116,10 +140,14 @@ body {
   background-color: #0dcdba;
   color: #fff;
   border: none;
-  padding: 10px;
-  width: 15%;
+  padding: 5px;
+  width: 10%;
   cursor: pointer;
   border-radius: 5px;
+}
+#leaveChannelBtn p {
+  font-size: 11px;
+  font-weight: bold;
 }
 
 /* Chat Container */
@@ -145,7 +173,7 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   overflow-y: scroll;
-  background-color: #fffae6;
+  background-image: url(bg2.jpg);
   border: 1px solid #ddd;
 }
 
@@ -322,21 +350,6 @@ a {
 * {
   scrollbar-width: thin; /* Lebar scrollbar lebih tipis */
   scrollbar-color: #888 #f1f1f1; /* Warna thumb dan track (thumb #888, track #f1f1f1) */
-}
-
-.chat-box-default {
-  background-image: url(ptsp.jpeg);
-  background-color: #0dcdba;
-  background-repeat: no-repeat;
-  position: center;
-  background-size: cover;
-}
-.welcome-message {
-  font-weight: bold;
-  color: #034130;
-}
-.welcome-message P {
-  color: #000;
 }
 
 /* MODAL */
@@ -655,7 +668,243 @@ button {
   cursor: pointer;
   width: 100%;
 }
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: white;
+  margin-bottom: 4px;
+  border-radius: 5px;
+}
+.hamburger.bar {
+  width: 100%;
+  height: 3px;
+  background-color: #333;
+  transition: all 0.3s ease;
+}
+.chat-header h3 {
+  text-align: center;
+  margin: auto;
+}
 
 #createChannelConfirmBtn:hover {
   background-color: #0c9284; /* Darker blue on hover */
+}
+button {
+  transition: background-color 0.3s ease;
+}
+/* RESPONSIVE DESIGN */
+
+/* Ipad */
+@media (max-width: 768px) {
+  /* Ubah layout menjadi kolom */
+  .main-container {
+    flex-direction: column;
+  }
+
+  /* Sesuaikan lebar sidebar */
+  .sidebar {
+    width: 100%;
+    order: 2;
+  }
+
+  /* Chat container jadi penuh */
+  .chat-container {
+    width: 100%;
+    order: 1;
+  }
+  .sidebar.hidden {
+    transform: translateX(-100%); /* Sidebar tersembunyi */
+  }
+  .sidebar {
+    position: fixed; /* Sidebar tetap */
+    height: 100%; /* Penuh layar */
+    z-index: 100; /* Di atas elemen lain */
+  }
+
+  .hamburger {
+    display: flex; /* Tampilkan hamburger menu */
+  }
+}
+/* Mobile */
+@media (max-width: 480px) {
+  /* Sidebar dan chat akan menyesuaikan */
+  .sidebar {
+    padding: 10px;
+  }
+
+  /* Styling elemen di dalam sidebar */
+  .user-profile img {
+    width: 80px;
+    height: 80px;
+  }
+
+  #userName {
+    font-size: 16px;
+  }
+
+  #logoutBtn,
+  #createChannelBtn {
+    width: 100%;
+    padding: 8px;
+  }
+
+  /* Chat box dan input message */
+  .chat-box {
+    padding: 10px;
+  }
+
+  .message-input {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .message-input input {
+    margin: 0 0 10px 0;
+    width: 100%;
+  }
+
+  .message-input button {
+    width: 100%;
+  }
+  .sidebar {
+    position: fixed; /* Sidebar tetap */
+    height: 100%; /* Penuh layar */
+    z-index: 100; /* Di atas elemen lain */
+    width: 50%;
+    z-index: 1000; /* Pastikan elemen tetap di atas elemen lainnya */
+  }
+
+  .hamburger {
+    display: flex; /* Tampilkan hamburger menu */
+  }
+
+  .chat-container {
+    margin-left: 0; /* Reset margin jika sidebar hidden */
+  }
+  .sidebar.hidden {
+    transform: translateX(-100%); /* Sidebar tersembunyi */
+  }
+  .chat-header h3 {
+    font-size: 16px;
+    width: 200px;
+    height: 60px;
+  }
+  .chat-header {
+    position: sticky; /* Tetap berada di atas */
+    top: 0; /* Berada di bagian paling atas layar */
+    z-index: 500; /* Pastikan elemen tetap di atas elemen lainnya */
+    background-color: #4a2c5b; /* Warna latar belakang agar solid */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4a2c5b; /* Warna latar belakang agar solid */
+  }
+  #leaveChannelBtn p {
+    font-size: 10px;
+  }
+}
+.message-input {
+  position: sticky; /* Tetap berada di bagian bawah */
+  bottom: 0; /* Berada di bagian paling bawah layar */
+}
+
+.chat-box-default {
+  background-image: url(mam.jpg);
+  background-color: #0dcdba;
+  background-repeat: no-repeat;
+  position: center;
+  background-size: cover;
+}
+.welcome-message {
+  font-weight: bolder;
+  color: #fff;
+}
+.welcome-message P {
+  color: #fff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+:root {
+  --color-primary: #f6aca2;
+  --color-secondary: #f49b90;
+  --color-tertiary: #f28b7d;
+  --color-quaternary: #f07a6a;
+  --color-quinary: #ee6352;
+}
+
+.welcome-message h3 {
+  text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary),
+    9px 9px var(--color-quaternary), 12px 12px 0 var(--color-quinary);
+  font-family: bungee, sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 30px;
+  text-align: center;
+  font-weight: bolder;
+  margin: 0;
+  color: var(#fff);
+  animation: shadows 2s ease-in infinite;
+  letter-spacing: 0.4rem;
+}
+
+@keyframes shadows {
+  0% {
+    text-shadow: none;
+  }
+  10% {
+    transform: translate(-3px, -3px);
+    text-shadow: 3px 3px 0 var(--color-secondary);
+  }
+  20% {
+    transform: translate(-6px, -6px);
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary);
+  }
+  30% {
+    transform: translate(-9px, -9px);
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary);
+  }
+  40% {
+    transform: translate(-12px, -12px);
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
+      12px 12px 0 var(--color-quinary);
+  }
+  50% {
+    transform: translate(-12px, -12px);
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
+      12px 12px 0 var(--color-quinary);
+  }
+  60% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
+      12px 12px 0 var(--color-quinary);
+  }
+  70% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary);
+  }
+  80% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary);
+  }
+  90% {
+    text-shadow: 3px 3px 0 var(--color-secondary);
+  }
+  100% {
+    text-shadow: none;
+  }
+}
+.welcome-message a {
+  color: #0dcdba;
 }
